@@ -63,14 +63,13 @@ class PuppyGalleryState extends State<PuppyGallery> {
       final http.Response response = await http.get(url);
 
       if (response.statusCode == 200) {
-        final List<dynamic> jsonData =
-            json.decode(response.body) as List<dynamic>;
+        final List<dynamic> jsonData = json.decode(response.body) as List<dynamic>;
 
         setState(() {
           _imageUrls.addAll(
             jsonData
-                .map((dynamic image) => ((image as Map<String, dynamic>)['urls']
-                    as Map<String, dynamic>)['small'] as String)
+                .map((dynamic image) =>
+                    ((image as Map<String, dynamic>)['urls'] as Map<String, dynamic>)['small'] as String)
                 .toList(),
           );
           _page++;
