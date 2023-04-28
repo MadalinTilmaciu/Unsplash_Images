@@ -1,8 +1,8 @@
 # Unsplash_Images
 
-Infinite scrolling of puppies images.
+Infinite scrolling of images from Unsplash.
 
-![untitled](https://user-images.githubusercontent.com/84337335/234233644-b1d6ee39-d3f7-4dac-a1e8-44052701876d.gif)
+![untitled](https://user-images.githubusercontent.com/84337335/235233223-6d51e61f-a6c7-4947-be2b-af4bb2668ff5.gif)
 
 ## Flutter tips
 
