@@ -1,11 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'links.dart';
-import 'urls.dart';
-import 'user.dart';
-
-part 'result.freezed.dart';
-part 'result.g.dart';
+part of 'index.dart';
 
 @freezed
 class Result with _$Result {

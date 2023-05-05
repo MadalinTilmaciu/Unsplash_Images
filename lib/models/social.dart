@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'social.freezed.dart';
-part 'social.g.dart';
+part of 'index.dart';
 
 @freezed
 class Social with _$Social {

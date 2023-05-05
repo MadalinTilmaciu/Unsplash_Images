@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'urls.freezed.dart';
-part 'urls.g.dart';
+part of 'index.dart';
 
 @freezed
 class Urls with _$Urls {

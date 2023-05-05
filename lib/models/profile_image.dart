@@ -1,7 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'profile_image.freezed.dart';
-part 'profile_image.g.dart';
+part of 'index.dart';
 
 @freezed
 class ProfileImage with _$ProfileImage {

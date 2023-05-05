@@ -1,11 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-import 'links.dart';
-import 'profile_image.dart';
-import 'social.dart';
-
-part 'user.freezed.dart';
-part 'user.g.dart';
+part of 'index.dart';
 
 @freezed
 class User with _$User {
