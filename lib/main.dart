@@ -91,46 +91,53 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Row(
-              children: <Widget>[
-                TextField(
-                  controller: _searchImageController,
-                  decoration: const InputDecoration(
-                    label: Text('images theme...'),
-                    prefixIcon: Icon(Icons.search),
-                    prefixIconColor: Colors.lightBlue,
-                  ),
-                ),
-                const SizedBox(
-                  width: 8,
-                ),
-                TextButton(
-                  onPressed: () {
-                    final Store<AppState> store = StoreProvider.of<AppState>(context);
-                    store.dispatch(
-                      GetImages.start(
-                        page: 1,
-                        search: _searchImageController.text,
-                      ),
-                    );
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.lightBlue,
-                    foregroundColor: Colors.white,
-                  ),
-                  child: const Text('Search'),
-                ),
-              ],
-            ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Random images',
           ),
-          Expanded(
-            child: IsLoadingContainer(
+          centerTitle: true,
+        ),
+        body: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: TextField(
+                      controller: _searchImageController,
+                      decoration: const InputDecoration(
+                        label: Text('images theme...'),
+                        prefixIcon: Icon(Icons.search),
+                        prefixIconColor: Colors.lightBlue,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      final Store<AppState> store = StoreProvider.of<AppState>(context);
+                      store.dispatch(
+                        GetImages.start(
+                          page: 1,
+                          search: _searchImageController.text,
+                        ),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.lightBlue,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: const Text('Search'),
+                  ),
+                ],
+              ),
+            ),
+            IsLoadingContainer(
               builder: (BuildContext context, bool isLoading) {
                 return ImagesContainer(
                   builder: (BuildContext context, List<Result> images) {
@@ -143,85 +150,87 @@ class _HomePageState extends State<HomePage> {
                       );
                     }
 
-                    return CustomScrollView(
-                      shrinkWrap: true,
-                      controller: _controller,
-                      slivers: <Widget>[
-                        SliverGrid(
-                          delegate: SliverChildBuilderDelegate(
-                            (BuildContext context, int index) {
-                              if (index == images.length) {
-                                return const Center(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(16),
-                                    child: CircularProgressIndicator(),
-                                  ),
-                                );
-                              }
-
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Stack(
-                                  fit: StackFit.expand,
-                                  children: <Widget>[
-                                    GridTile(
-                                      child: Image.network(
-                                        images[index].urls.regular,
-                                        fit: BoxFit.cover,
-                                      ),
+                    return Expanded(
+                      child: CustomScrollView(
+                        shrinkWrap: true,
+                        controller: _controller,
+                        slivers: <Widget>[
+                          SliverGrid(
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                if (index == images.length) {
+                                  return const Center(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(16),
+                                      child: CircularProgressIndicator(),
                                     ),
-                                    Align(
-                                      alignment: AlignmentDirectional.bottomEnd,
-                                      child: Container(
-                                        decoration: const BoxDecoration(
-                                          gradient: LinearGradient(
-                                            begin: AlignmentDirectional.bottomCenter,
-                                            end: AlignmentDirectional.topCenter,
-                                            colors: <Color>[
-                                              Colors.black54,
-                                              Colors.transparent,
-                                            ],
-                                          ),
+                                  );
+                                }
+
+                                return Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Stack(
+                                    fit: StackFit.expand,
+                                    children: <Widget>[
+                                      GridTile(
+                                        child: Image.network(
+                                          images[index].urls.regular,
+                                          fit: BoxFit.cover,
                                         ),
-                                        child: ListTile(
-                                          title: Text(
-                                            '${images[index].user.name} (${images[index].user.totalLikes})',
+                                      ),
+                                      Align(
+                                        alignment: AlignmentDirectional.bottomEnd,
+                                        child: Container(
+                                          decoration: const BoxDecoration(
+                                            gradient: LinearGradient(
+                                              begin: AlignmentDirectional.bottomCenter,
+                                              end: AlignmentDirectional.topCenter,
+                                              colors: <Color>[
+                                                Colors.black54,
+                                                Colors.transparent,
+                                              ],
+                                            ),
                                           ),
-                                          trailing: CircleAvatar(
-                                            backgroundImage: NetworkImage(
-                                              images[index].user.profileImage.medium,
+                                          child: ListTile(
+                                            title: Text(
+                                              '${images[index].user.name} (${images[index].user.totalLikes})',
+                                            ),
+                                            trailing: CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                images[index].user.profileImage.medium,
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                            childCount: images.length,
-                          ),
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                          ),
-                        ),
-                        if (isLoading)
-                          const SliverToBoxAdapter(
-                            child: Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(16),
-                                child: CircularProgressIndicator(),
-                              ),
+                                    ],
+                                  ),
+                                );
+                              },
+                              childCount: images.length,
+                            ),
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
                             ),
                           ),
-                      ],
+                          if (isLoading)
+                            const SliverToBoxAdapter(
+                              child: Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(16),
+                                  child: CircularProgressIndicator(),
+                                ),
+                              ),
+                            ),
+                        ],
+                      ),
                     );
                   },
                 );
               },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
