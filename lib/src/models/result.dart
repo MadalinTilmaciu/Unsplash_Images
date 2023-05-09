@@ -3,7 +3,7 @@ part of 'index.dart';
 @freezed
 class Result with _$Result {
   factory Result({
-    String? id,
+    required String id,
     @JsonKey(name: 'created_at') String? createdAt,
     @JsonKey(name: 'updated_at') String? updatedAt,
     @JsonKey(name: 'promoted_at') String? promotedAt,

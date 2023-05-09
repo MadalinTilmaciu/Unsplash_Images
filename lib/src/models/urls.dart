@@ -4,7 +4,7 @@ part of 'index.dart';
 class Urls with _$Urls {
   factory Urls({
     String? raw,
-    String? full,
+    required String full,
     required String regular,
     String? small,
     String? thumb,

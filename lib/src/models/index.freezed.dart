@@ -20,7 +20,7 @@ Result _$ResultFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Result {
-  String? get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'created_at')
   String? get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'updated_at')
@@ -55,7 +55,7 @@ abstract class $ResultCopyWith<$Res> {
   factory $ResultCopyWith(Result value, $Res Function(Result) then) = _$ResultCopyWithImpl<$Res, Result>;
   @useResult
   $Res call(
-      {String? id,
+      {String id,
       @JsonKey(name: 'created_at') String? createdAt,
       @JsonKey(name: 'updated_at') String? updatedAt,
       @JsonKey(name: 'promoted_at') String? promotedAt,
@@ -90,7 +90,7 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result> implements $ResultCopyWith
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? promotedAt = freezed,
@@ -109,10 +109,10 @@ class _$ResultCopyWithImpl<$Res, $Val extends Result> implements $ResultCopyWith
     Object? user = null,
   }) {
     return _then(_value.copyWith(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -215,7 +215,7 @@ abstract class _$$_ResultCopyWith<$Res> implements $ResultCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String? id,
+      {String id,
       @JsonKey(name: 'created_at') String? createdAt,
       @JsonKey(name: 'updated_at') String? updatedAt,
       @JsonKey(name: 'promoted_at') String? promotedAt,
@@ -248,7 +248,7 @@ class __$$_ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res, _$_Result
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
     Object? promotedAt = freezed,
@@ -267,10 +267,10 @@ class __$$_ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res, _$_Result
     Object? user = null,
   }) {
     return _then(_$_Result(
-      id: freezed == id
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -343,7 +343,7 @@ class __$$_ResultCopyWithImpl<$Res> extends _$ResultCopyWithImpl<$Res, _$_Result
 @JsonSerializable()
 class _$_Result implements _Result {
   _$_Result(
-      {this.id,
+      {required this.id,
       @JsonKey(name: 'created_at') this.createdAt,
       @JsonKey(name: 'updated_at') this.updatedAt,
       @JsonKey(name: 'promoted_at') this.promotedAt,
@@ -365,7 +365,7 @@ class _$_Result implements _Result {
   factory _$_Result.fromJson(Map<String, dynamic> json) => _$$_ResultFromJson(json);
 
   @override
-  final String? id;
+  final String id;
   @override
   @JsonKey(name: 'created_at')
   final String? createdAt;
@@ -480,7 +480,7 @@ class _$_Result implements _Result {
 
 abstract class _Result implements Result {
   factory _Result(
-      {final String? id,
+      {required final String id,
       @JsonKey(name: 'created_at') final String? createdAt,
       @JsonKey(name: 'updated_at') final String? updatedAt,
       @JsonKey(name: 'promoted_at') final String? promotedAt,
@@ -501,7 +501,7 @@ abstract class _Result implements Result {
   factory _Result.fromJson(Map<String, dynamic> json) = _$_Result.fromJson;
 
   @override
-  String? get id;
+  String get id;
   @override
   @JsonKey(name: 'created_at')
   String? get createdAt;
@@ -1484,7 +1484,7 @@ Urls _$UrlsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Urls {
   String? get raw => throw _privateConstructorUsedError;
-  String? get full => throw _privateConstructorUsedError;
+  String get full => throw _privateConstructorUsedError;
   String get regular => throw _privateConstructorUsedError;
   String? get small => throw _privateConstructorUsedError;
   String? get thumb => throw _privateConstructorUsedError;
@@ -1502,7 +1502,7 @@ abstract class $UrlsCopyWith<$Res> {
   @useResult
   $Res call(
       {String? raw,
-      String? full,
+      String full,
       String regular,
       String? small,
       String? thumb,
@@ -1522,7 +1522,7 @@ class _$UrlsCopyWithImpl<$Res, $Val extends Urls> implements $UrlsCopyWith<$Res>
   @override
   $Res call({
     Object? raw = freezed,
-    Object? full = freezed,
+    Object? full = null,
     Object? regular = null,
     Object? small = freezed,
     Object? thumb = freezed,
@@ -1533,10 +1533,10 @@ class _$UrlsCopyWithImpl<$Res, $Val extends Urls> implements $UrlsCopyWith<$Res>
           ? _value.raw
           : raw // ignore: cast_nullable_to_non_nullable
               as String?,
-      full: freezed == full
+      full: null == full
           ? _value.full
           : full // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       regular: null == regular
           ? _value.regular
           : regular // ignore: cast_nullable_to_non_nullable
@@ -1564,7 +1564,7 @@ abstract class _$$_UrlsCopyWith<$Res> implements $UrlsCopyWith<$Res> {
   @useResult
   $Res call(
       {String? raw,
-      String? full,
+      String full,
       String regular,
       String? small,
       String? thumb,
@@ -1579,7 +1579,7 @@ class __$$_UrlsCopyWithImpl<$Res> extends _$UrlsCopyWithImpl<$Res, _$_Urls> impl
   @override
   $Res call({
     Object? raw = freezed,
-    Object? full = freezed,
+    Object? full = null,
     Object? regular = null,
     Object? small = freezed,
     Object? thumb = freezed,
@@ -1590,10 +1590,10 @@ class __$$_UrlsCopyWithImpl<$Res> extends _$UrlsCopyWithImpl<$Res, _$_Urls> impl
           ? _value.raw
           : raw // ignore: cast_nullable_to_non_nullable
               as String?,
-      full: freezed == full
+      full: null == full
           ? _value.full
           : full // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       regular: null == regular
           ? _value.regular
           : regular // ignore: cast_nullable_to_non_nullable
@@ -1618,14 +1618,19 @@ class __$$_UrlsCopyWithImpl<$Res> extends _$UrlsCopyWithImpl<$Res, _$_Urls> impl
 @JsonSerializable()
 class _$_Urls implements _Urls {
   _$_Urls(
-      {this.raw, this.full, required this.regular, this.small, this.thumb, @JsonKey(name: 'small_s3') this.smallS3});
+      {this.raw,
+      required this.full,
+      required this.regular,
+      this.small,
+      this.thumb,
+      @JsonKey(name: 'small_s3') this.smallS3});
 
   factory _$_Urls.fromJson(Map<String, dynamic> json) => _$$_UrlsFromJson(json);
 
   @override
   final String? raw;
   @override
-  final String? full;
+  final String full;
   @override
   final String regular;
   @override
@@ -1674,7 +1679,7 @@ class _$_Urls implements _Urls {
 abstract class _Urls implements Urls {
   factory _Urls(
       {final String? raw,
-      final String? full,
+      required final String full,
       required final String regular,
       final String? small,
       final String? thumb,
@@ -1685,7 +1690,7 @@ abstract class _Urls implements Urls {
   @override
   String? get raw;
   @override
-  String? get full;
+  String get full;
   @override
   String get regular;
   @override
@@ -2066,6 +2071,7 @@ mixin _$AppState {
   bool get hasMore => throw _privateConstructorUsedError;
   String get searchName => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
+  String? get selectedPictureId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -2076,7 +2082,8 @@ mixin _$AppState {
 abstract class $AppStateCopyWith<$Res> {
   factory $AppStateCopyWith(AppState value, $Res Function(AppState) then) = _$AppStateCopyWithImpl<$Res, AppState>;
   @useResult
-  $Res call({List<Result> images, bool isLoading, bool hasMore, String searchName, int page});
+  $Res call(
+      {List<Result> images, bool isLoading, bool hasMore, String searchName, int page, String? selectedPictureId});
 }
 
 /// @nodoc
@@ -2096,6 +2103,7 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
     Object? hasMore = null,
     Object? searchName = null,
     Object? page = null,
+    Object? selectedPictureId = freezed,
   }) {
     return _then(_value.copyWith(
       images: null == images
@@ -2118,6 +2126,10 @@ class _$AppStateCopyWithImpl<$Res, $Val extends AppState> implements $AppStateCo
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      selectedPictureId: freezed == selectedPictureId
+          ? _value.selectedPictureId
+          : selectedPictureId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -2127,7 +2139,8 @@ abstract class _$$AppState$CopyWith<$Res> implements $AppStateCopyWith<$Res> {
   factory _$$AppState$CopyWith(_$AppState$ value, $Res Function(_$AppState$) then) = __$$AppState$CopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Result> images, bool isLoading, bool hasMore, String searchName, int page});
+  $Res call(
+      {List<Result> images, bool isLoading, bool hasMore, String searchName, int page, String? selectedPictureId});
 }
 
 /// @nodoc
@@ -2143,6 +2156,7 @@ class __$$AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$App
     Object? hasMore = null,
     Object? searchName = null,
     Object? page = null,
+    Object? selectedPictureId = freezed,
   }) {
     return _then(_$AppState$(
       images: null == images
@@ -2165,6 +2179,10 @@ class __$$AppState$CopyWithImpl<$Res> extends _$AppStateCopyWithImpl<$Res, _$App
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
+      selectedPictureId: freezed == selectedPictureId
+          ? _value.selectedPictureId
+          : selectedPictureId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -2177,7 +2195,8 @@ class _$AppState$ implements AppState$ {
       this.isLoading = false,
       this.hasMore = true,
       this.searchName = 'puppies',
-      this.page = 1})
+      this.page = 1,
+      this.selectedPictureId})
       : _images = images;
 
   factory _$AppState$.fromJson(Map<String, dynamic> json) => _$$AppState$FromJson(json);
@@ -2203,10 +2222,12 @@ class _$AppState$ implements AppState$ {
   @override
   @JsonKey()
   final int page;
+  @override
+  final String? selectedPictureId;
 
   @override
   String toString() {
-    return 'AppState(images: $images, isLoading: $isLoading, hasMore: $hasMore, searchName: $searchName, page: $page)';
+    return 'AppState(images: $images, isLoading: $isLoading, hasMore: $hasMore, searchName: $searchName, page: $page, selectedPictureId: $selectedPictureId)';
   }
 
   @override
@@ -2218,13 +2239,14 @@ class _$AppState$ implements AppState$ {
             (identical(other.isLoading, isLoading) || other.isLoading == isLoading) &&
             (identical(other.hasMore, hasMore) || other.hasMore == hasMore) &&
             (identical(other.searchName, searchName) || other.searchName == searchName) &&
-            (identical(other.page, page) || other.page == page));
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.selectedPictureId, selectedPictureId) || other.selectedPictureId == selectedPictureId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_images), isLoading, hasMore, searchName, page);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_images), isLoading, hasMore,
+      searchName, page, selectedPictureId);
 
   @JsonKey(ignore: true)
   @override
@@ -2245,7 +2267,8 @@ abstract class AppState$ implements AppState {
       final bool isLoading,
       final bool hasMore,
       final String searchName,
-      final int page}) = _$AppState$;
+      final int page,
+      final String? selectedPictureId}) = _$AppState$;
 
   factory AppState$.fromJson(Map<String, dynamic> json) = _$AppState$.fromJson;
 
@@ -2259,6 +2282,8 @@ abstract class AppState$ implements AppState {
   String get searchName;
   @override
   int get page;
+  @override
+  String? get selectedPictureId;
   @override
   @JsonKey(ignore: true)
   _$$AppState$CopyWith<_$AppState$> get copyWith => throw _privateConstructorUsedError;

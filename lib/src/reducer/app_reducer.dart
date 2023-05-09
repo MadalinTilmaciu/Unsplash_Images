@@ -16,14 +16,14 @@ Reducer<AppState> _reducer = combineReducers(<Reducer<AppState>>[
   TypedReducer<AppState, GetImagesStart>(_getImagesStart).call,
   TypedReducer<AppState, GetImagesSuccessful>(_getImagesSuccessful).call,
   TypedReducer<AppState, GetImagesError>(_getImagesError).call,
+  TypedReducer<AppState, SetSelectedImage>(_setSelectedImage).call,
 ]);
 
 AppState _getImagesStart(AppState state, GetImagesStart action) {
   return state.copyWith(
     isLoading: true,
-    page: action.page == 1 ? 1 : action.page,
     searchName: action.search,
-    images: action.page == 1 ? <Result>[] : state.images,
+    page: action.page,
   );
 }
 
@@ -41,4 +41,8 @@ AppState _getImagesSuccessful(AppState state, GetImagesSuccessful action) {
 
 AppState _getImagesError(AppState state, GetImagesError action) {
   return state.copyWith(isLoading: false);
+}
+
+AppState _setSelectedImage(AppState state, SetSelectedImage action) {
+  return state.copyWith(selectedPictureId: action.pictureId);
 }
