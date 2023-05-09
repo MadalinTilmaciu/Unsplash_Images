@@ -7,7 +7,7 @@ part of 'index.dart';
 // **************************************************************************
 
 _$_Result _$$_ResultFromJson(Map<String, dynamic> json) => _$_Result(
-      id: json['id'] as String?,
+      id: json['id'] as String,
       createdAt: json['created_at'] as String?,
       updatedAt: json['updated_at'] as String?,
       promotedAt: json['promoted_at'] as String?,
@@ -118,7 +118,7 @@ Map<String, dynamic> _$$_LinksToJson(_$_Links instance) => <String, dynamic>{
 
 _$_Urls _$$_UrlsFromJson(Map<String, dynamic> json) => _$_Urls(
       raw: json['raw'] as String?,
-      full: json['full'] as String?,
+      full: json['full'] as String,
       regular: json['regular'] as String,
       small: json['small'] as String?,
       thumb: json['thumb'] as String?,
@@ -167,6 +167,7 @@ _$AppState$ _$$AppState$FromJson(Map<String, dynamic> json) => _$AppState$(
       hasMore: json['hasMore'] as bool? ?? true,
       searchName: json['searchName'] as String? ?? 'puppies',
       page: json['page'] as int? ?? 1,
+      selectedPictureId: json['selectedPictureId'] as String?,
     );
 
 Map<String, dynamic> _$$AppState$ToJson(_$AppState$ instance) => <String, dynamic>{
@@ -175,4 +176,5 @@ Map<String, dynamic> _$$AppState$ToJson(_$AppState$ instance) => <String, dynami
       'hasMore': instance.hasMore,
       'searchName': instance.searchName,
       'page': instance.page,
+      'selectedPictureId': instance.selectedPictureId,
     };

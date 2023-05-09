@@ -5,12 +5,13 @@ import 'package:http/http.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
 
-import 'actions/index.dart';
-import 'data/unsplash_api.dart';
-import 'epics/app_epics.dart';
-import 'models/index.dart';
-import 'presentation/home_page.dart';
-import 'reducer/app_reducer.dart';
+import './src/actions/index.dart';
+import './src/data/unsplash_api.dart';
+import './src/epics/app_epics.dart';
+import './src/models/index.dart';
+import './src/presentation/home_page.dart';
+import './src/reducer/app_reducer.dart';
+import 'src/presentation/picture_details.dart';
 
 Future<void> main() async {
   await dotenv.load();
@@ -48,8 +49,11 @@ class UnsplashImagesSearch extends StatelessWidget {
       store: store,
       child: MaterialApp(
         theme: ThemeData.dark(),
-        home: const HomePage(),
         debugShowCheckedModeBanner: false,
+        routes: <String, WidgetBuilder>{
+          '/': (BuildContext context) => const HomePage(),
+          '/details': (BuildContext context) => const PictureDetails(),
+        },
       ),
     );
   }

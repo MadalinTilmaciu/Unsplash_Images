@@ -8,6 +8,7 @@ class AppState with _$AppState {
     @Default(true) bool hasMore,
     @Default('puppies') String searchName,
     @Default(1) int page,
+    String? selectedPictureId,
   }) = AppState$;
 
   factory AppState.fromJson(Map<String, dynamic> json) => _$AppStateFromJson(json);

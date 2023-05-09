@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
@@ -15,7 +16,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ScrollController _controller = ScrollController();
-  final TextEditingController _searchImageController = TextEditingController();
 
   @override
   void initState() {
@@ -54,38 +54,21 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             Padding(
               padding: const EdgeInsets.all(16.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: TextField(
-                      controller: _searchImageController,
-                      decoration: const InputDecoration(
-                        label: Text('images theme...'),
-                        prefixIcon: Icon(Icons.search),
-                        prefixIconColor: Colors.lightBlue,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 8,
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      final Store<AppState> store = StoreProvider.of<AppState>(context);
-                      store.dispatch(
-                        GetImages.start(
-                          page: 1,
-                          search: _searchImageController.text,
-                        ),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: Colors.lightBlue,
-                      foregroundColor: Colors.white,
-                    ),
-                    child: const Text('Search'),
-                  ),
-                ],
+              child: TextField(
+                decoration: const InputDecoration(
+                  label: Text('images theme...'),
+                  prefixIcon: Icon(Icons.search),
+                  prefixIconColor: Colors.lightBlue,
+                ),
+                onChanged: (String value) {
+                  if (value.isEmpty) {
+                    return;
+                  }
+
+                  StoreProvider.of<AppState>(context).dispatch(
+                    GetImages.start(page: 1, search: value),
+                  );
+                },
               ),
             ),
             IsLoadingContainer(
@@ -123,11 +106,22 @@ class _HomePageState extends State<HomePage> {
                                   child: Stack(
                                     fit: StackFit.expand,
                                     children: <Widget>[
-                                      GridTile(
-                                        child: Image.network(
-                                          images[index].urls.regular,
-                                          fit: BoxFit.cover,
+                                      GestureDetector(
+                                        child: GridTile(
+                                          child: CachedNetworkImage(
+                                            imageUrl: images[index].urls.full,
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
+                                        onTap: () {
+                                          StoreProvider.of<AppState>(context).dispatch(
+                                            SetSelectedImage(images[index].id),
+                                          );
+                                          Navigator.pushNamed(
+                                            context,
+                                            '/details',
+                                          );
+                                        },
                                       ),
                                       Align(
                                         alignment: AlignmentDirectional.bottomEnd,
